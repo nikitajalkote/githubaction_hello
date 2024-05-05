@@ -46,6 +46,7 @@ jobs:
         key: ${{ secrets.EC2_KEY }}
         port: 22  
         script:
+          cd
           cd /home/ubuntu/githubaction
           python3 happy.py
             
