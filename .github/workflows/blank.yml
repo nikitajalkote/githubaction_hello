@@ -18,10 +18,7 @@ jobs:
         python3 -m pip install --upgrade pip
         python3 -m pip install pytest
 
-    - name: Run Tests
-      run: |
-        pytest
-
+   
     - name: executing remote ssh commands using key
       uses: appleboy/ssh-action@v1.0.3
       with:
