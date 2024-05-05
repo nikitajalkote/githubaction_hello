@@ -1,0 +1,52 @@
+name: EC2 deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checking out code
+      uses: actions/checkout@v4
+
+    - name: looking into the runner machine
+      run: ls
+
+    - name: executing remote ssh commands using key
+      uses:  appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_KEY }}
+        port: 22
+        script:
+          pwd
+          ls
+          
+
+    - name: copy file via SSH key
+      uses:  appleboy/ssh-action@v0.1.7
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_KEY }}
+        port: 22  
+        source: ./
+        target: /home/ubuntu/githubaction
+
+    - name: run python file
+      uses:  appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_KEY }}
+        port: 22  
+        script:
+          cd /home/ubuntu/githubaction
+          sudo python3 happy.py
+            
+        
