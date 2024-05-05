@@ -36,16 +36,14 @@ jobs:
           sudo chmod -R 755 /home/ubuntu/githubaction
           
     - name: copy file via SSH key
-      uses: appleboy/ssh-action@v0.1.7
+      uses: actions/checkout@v4
       with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USERNAME }}
-        key: ${{ secrets.EC2_KEY }}
-        port: 22  
-        source: Hello.py
-        target: /home/ubuntu/githubaction
-        script:
+        script: |
+          pwd
           ls
+          cd /home/ubuntu/githubaction
+          ls
+        
           
 
     - name: run python file
