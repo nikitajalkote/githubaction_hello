@@ -46,7 +46,7 @@ jobs:
         target: /home/ubuntu/githubaction
         script:
           ls
-          pwd
+          
 
     - name: run python file
       uses: appleboy/ssh-action@v1.0.3
