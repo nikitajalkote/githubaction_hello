@@ -13,8 +13,14 @@ jobs:
     - name: checking out code
       uses: actions/checkout@v4
 
-    - name: looking into the runner machine
-      run: ls
+    - name: Install Dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Tests
+      run: |
+        pytest
 
     - name: executing remote ssh commands using key
       uses:  appleboy/ssh-action@v1.0.3
