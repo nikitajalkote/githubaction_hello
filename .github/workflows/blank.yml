@@ -47,6 +47,6 @@ jobs:
         port: 22  
         script:
           cd /home/ubuntu/githubaction
-          sudo python3 happy.py
+          python3 happy.py
             
         
