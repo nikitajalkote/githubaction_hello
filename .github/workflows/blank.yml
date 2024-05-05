@@ -36,13 +36,15 @@ jobs:
           sudo chmod -R 755 /home/ubuntu/githubaction
           
     - name: copy file via SSH key
-      uses: actions/checkout@v4
+      uses: appleboy/ssh-action@v0.1.7
       with:
-        script: |
-          pwd
-          ls
-          cd /home/ubuntu/githubaction
-          ls
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_KEY }}
+        port: 22  
+        run: |
+          git clone https://github.com/your-username/your-repository.git /home/ubuntu/githubaction
+
         
           
 
