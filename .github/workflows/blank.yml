@@ -16,7 +16,7 @@ jobs:
     - name: Install Dependencies
       run: |
         python3 -m pip install --upgrade pip
-        pip install -r requirements.txt
+        
 
     - name: Run Tests
       run: |
@@ -51,9 +51,7 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_KEY }}
         port: 22  
-        script:
+        script: |
           cd /home/ubuntu/githubaction
-        run:
           python3 happy.py
-            
         
