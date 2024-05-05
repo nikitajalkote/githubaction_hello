@@ -42,8 +42,11 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_KEY }}
         port: 22  
-        source: happy.py
+        source: Hello.py
         target: /home/ubuntu/githubaction
+        script:
+          ls
+          pwd
 
     - name: run python file
       uses: appleboy/ssh-action@v1.0.3
@@ -54,4 +57,5 @@ jobs:
         port: 22  
         script: |
           cd /home/ubuntu/githubaction
-          python3 happy.py
+          ls
+          python3 Hello.py
