@@ -34,23 +34,17 @@ jobs:
           sudo mkdir -p /home/ubuntu/githubaction
           sudo chown -R ${{ secrets.EC2_USENAME }} /home/ubuntu/githubaction
           sudo chmod -R 755 /home/ubuntu/githubaction
-          
-    - name: Clone GitHub repository via SSH
-      uses: appleboy/ssh-action@v0.1.7
+
+    - name: copy file via SSH key
+      uses:  appleboy/ssh-action@v0.1.7
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_KEY }}
         port: 22  
-        run: |
-          cd /home/ubuntu/githubaction
-          git clone https://github.com/nikitajalkote/githubaction_hello.git 
-          pwd
-          ls
-
+        source: ./
+        target: /home/ubuntu/githubaction
         
-          
-
     - name: run python file
       uses: appleboy/ssh-action@v1.0.3
       with:
