@@ -44,6 +44,8 @@ jobs:
         port: 22  
         run: |
           git clone https://github.com/nikitajalkote/githubaction_hello.git /home/ubuntu/githubaction
+          pwd
+          ls
 
         
           
