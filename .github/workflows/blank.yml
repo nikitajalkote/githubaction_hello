@@ -44,6 +44,9 @@ jobs:
         port: 22  
         source: ./
         target: /home/ubuntu/githubaction
+        script: |
+          cd /home/ubuntu/githubaction
+          ls
         
     - name: run python file
       uses: appleboy/ssh-action@v1.0.3
