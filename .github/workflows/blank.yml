@@ -42,7 +42,7 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_KEY }}
         port: 22  
-        run: |
+        run: 
           git clone https://github.com/nikitajalkote/githubaction_hello.git /home/ubuntu/githubaction
           pwd
           ls
