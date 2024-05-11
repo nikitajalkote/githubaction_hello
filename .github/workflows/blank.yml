@@ -33,7 +33,7 @@ jobs:
           pwd
           ls
           sudo mkdir -p /var/www/html
-          sudo chown -R ${{ secrets.EC2_USENAME }} /var/www/html
+          sudo chown -R ${{ secrets.EC2_USERNAME }} /var/www/html
           sudo chmod -R 755 /var/www/html
 
     - name: copy file via SSH key
