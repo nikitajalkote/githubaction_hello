@@ -32,9 +32,9 @@ jobs:
         script:
           pwd
           ls
-          sudo mkdir -p /var/www/html
-          sudo chown -R ${{ secrets.EC2_USERNAME }} /var/www/html
-          sudo chmod -R 755 /var/www/html
+          sudo mkdir -p /home/ubuntu/githubaction
+          sudo chown -R ${{ secrets.EC2_USENAME }} /home/ubuntu/githubaction
+          sudo chmod -R 755 /home/ubuntu/githubaction
 
     - name: copy file via SSH key
       uses:  appleboy/ssh-action@v0.1.7
