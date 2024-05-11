@@ -56,5 +56,5 @@ jobs:
         port: 22
         script: |
            cd /var/www/html
-           sudo python3 Hello.py
+           sudo python3 my_flask.py
         
