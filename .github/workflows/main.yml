@@ -13,6 +13,12 @@ jobs:
     steps: 
     - name: checking-out code 
       uses: actions/checkout@v4
+      
+    - name: Install Dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        python3 -m pip install pytest
+
 
     - name: Looking into runner machine 
       run: ls 
