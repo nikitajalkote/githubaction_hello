@@ -49,5 +49,6 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         port: 22
         script: |
+           cd /var/www/html
            sudo python3 Hello.py
         
