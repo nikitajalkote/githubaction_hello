@@ -12,6 +12,7 @@ jobs:
     steps:
     - name: checking out code
       uses: actions/checkout@v4
+      
     - name: looking into the runner machine
       run: ls
 
