@@ -1,17 +1,11 @@
-print("Hello, world!")
-variable = "Python"
-variabl1 = 3.12
-print("programming in", variable, variabl1)
-python=True
-name = "Nikita"
-age = 27
-print(f"Name:{name}, AGE:{age}")
-#f string formatting
-"""This is 
-multiline 
-comment"""
-
-print("""
-This is multiline String
-which is used in three double quotes
-      """)
+# import add
+# Inmporting Flask
+from flask import Flask
+# Create the server
+app=Flask(__name__)
+####
+@app.route("/")
+def hello():
+    return "Hello World"
+if (__name__ == "__main__"):
+   app.run(host='0.0.0.0', port=5000, debug=True)
