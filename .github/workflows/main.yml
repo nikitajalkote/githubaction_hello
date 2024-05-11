@@ -47,7 +47,7 @@ jobs:
         source: ./
         target: /var/www/html
 
-    - name: restarting nginx
+    - name: Deploy to Staging
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.EC2_HOST }}
